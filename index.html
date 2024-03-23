@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bit Editor 1.0</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        #controlsContainer {
+            border-left: 2px solid #dee2e6;
+            padding-left: 20px;
+        }
+        #canvasContainer {
+            background-color: #f0f0f0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        canvas {
+            margin: auto;
+            display: block;
+        }
+        .control-group {
+            background-color: #e9ecef;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-9" id="canvasContainer">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="col-md-3" id="controlsContainer">
+            <input type="file" id="fileInput" class="mb-3">
+            <div class="control-group">
+                <input type="range" id="bitsPerRowSlider" min="8" max="1024" step="8" value="8" class="custom-range mb-2">
+                <div>Width in bytes: <span id="bitsPerRowValue">1</span></div>
+            </div>
+            <div class="control-group">
+                <input type="range" id="scaleSlider" min="1" max="10" step="1" value="2" class="custom-range mb-2">
+                <div>Scale: <span id="scaleValue">2</span>x</div>
+            </div>
+            <div class="control-group">
+                <label for="offsetInput">Offset</label>
+                <input type="number" id="offsetInput" min="0" class="form-control mb-2" placeholder="Offset in bytes">
+                <input type="range" id="offsetSlider" min="0" max="0" step="1" value="0" class="custom-range mb-2">
+                <div>Min: <span id="offsetMin">0</span> bytes, Max: <span id="offsetMax">0</span> bytes</div>
+            </div>
+            <button id="saveButton" class="btn btn-primary btn-block">Save File</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
