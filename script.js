@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Show readme popup
     document.getElementById('showReadme').addEventListener('click', function(event) {
         event.preventDefault();
         fetch('README.md')
@@ -95,6 +96,11 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('readmePopup').style.display = 'block';
           })
           .catch(error => console.error('Error loading README.md:', error));
+    });
+
+    // Hide readme popup
+    document.querySelector('.close').addEventListener('click', function() {
+        document.getElementById('readmePopup').style.display = 'none';
     });
 
     document.getElementById('canvas').addEventListener('contextmenu', event => event.preventDefault());
